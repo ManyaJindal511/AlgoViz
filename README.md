@@ -2,10 +2,13 @@
 
 **AlgoViz** is a fully responsive, interactive algorithm visualizer built using **React + Vite**. It helps users understand how various sorting, searching, and pathfinding algorithms work through visual animation and real-time interaction.
 
+---
+
 ## 🌐 Live Demo
 
 [👉 View Deployed Project on Vercel](https://algo-viz-rho.vercel.app/) 
 
+---
 
 ## ✨ Features
 
