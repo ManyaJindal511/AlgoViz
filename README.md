@@ -4,7 +4,7 @@
 
 ## 🌐 Live Demo
 
-[👉 View Deployed Project on Vercel]([https://algoviz.vercel.app](https://algo-viz-rho.vercel.app/))  
+[👉 View Deployed Project on Vercel](https://algo-viz-rho.vercel.app/) 
 
 
 ## ✨ Features
