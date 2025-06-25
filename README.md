@@ -1,12 +1,27 @@
-# React + Vite
+# AlgoViz
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**AlgoViz** is a fully responsive, interactive algorithm visualizer built using **React + Vite**. It helps users understand how various sorting, searching, and pathfinding algorithms work through visual animation and real-time interaction.
 
-Currently, two official plugins are available:
+## 🌐 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[👉 View Deployed Project on Vercel]([https://algoviz.vercel.app](https://algo-viz-rho.vercel.app/))  
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## ✨ Features
+
+- 📊 **Sorting Visualizer**: Bubble, Selection, Merge, and Quick Sort with animation, swaps, comparisons, time & space complexities.
+- 🔍 **Searching Visualizer**: Linear and Binary Search with bar highlighting and performance stats.
+- 🧭 **Pathfinding Visualizer**: DFS and BFS visual animations through customizable grid nodes.
+- 🧩 **Responsive UI**: Works smoothly on both desktop and mobile.
+- 🎨 **Custom UI Elements**: Color-coded bars, styled dropdowns, clean layout.
+
+---
+
+## 🚀 Tech Stack
+
+- **Frontend**: React, Vite, HTML, CSS, JavaScript
+- **Styling**: Custom CSS, Responsive Flexbox & Media Queries
+- **Deployment**: Vercel
+
+
+
