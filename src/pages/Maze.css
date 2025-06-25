@@ -1,0 +1,161 @@
+.info-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background-color: #f4f4f4;
+  padding: 15px 20px;
+  border-radius: 10px;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.card p {
+  font-size: 14px;
+  color: #444;
+} 
+
+
+.maze-container {
+  padding: 20px;
+  text-align: center;
+}
+.maze-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+
+.maze-controls {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.maze-controls button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.grid-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  margin: auto;
+}
+
+.grid-row {
+  display: flex;
+}
+
+.node {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.node-start {
+  background-color: green;
+}
+
+.node-end {
+  background-color: red;
+}
+
+.node-wall {
+  background-color: black;
+}
+
+.node-visited {
+  background-color: #b1d4fc;
+  transition: background-color 0.3s;
+}
+
+.node-path {
+  background-color: yellow;
+}
+
+@media (max-width: 600px) {
+  .node {
+    width: 14px;
+    height: 14px;
+  }
+
+  .maze-controls button {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+} 
+
+.maze-container {
+  padding: 20px;
+  text-align: center;
+}
+
+.controls {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.grid-wrapper {
+  overflow-x: auto;
+  padding: 10px;
+  max-width: 100%;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid-row {
+  display: flex;
+}
+
+.info-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+  padding: 10px;
+}
+
+.card {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+  }
+}
