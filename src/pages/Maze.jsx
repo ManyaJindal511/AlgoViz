@@ -4,7 +4,7 @@ import { bfs, getPath } from "../algorithms/bfs";
 import { dfs } from "../algorithms/dfs";
 import "./Maze.css";
 
-const NUM_ROWS = 15; 
+const NUM_ROWS = 15;
 const NUM_COLS = 30;
 const START = [3, 4];
 const END = [10, 25];
@@ -13,6 +13,7 @@ const Maze = () => {
   const [grid, setGrid] = useState([]);
   const [mouseIsPressed, setMouseIsPressed] = useState(false);
   const [speed, setSpeed] = useState("Medium");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     setGrid(createGrid());
@@ -69,7 +70,7 @@ const Maze = () => {
         ...node,
         isVisited: false,
         previousNode: null,
-        isWall: node.isStart || node.isEnd ? false : node.isWall,
+        isWall: false,
       }))
     );
 
@@ -78,6 +79,7 @@ const Maze = () => {
     );
 
     setGrid(newGrid);
+    setMessage("");
   };
 
   const getDelay = () => {
@@ -87,15 +89,24 @@ const Maze = () => {
   };
 
   const visualize = (algo) => {
-    clearGrid();
+    setMessage(""); 
+
     const startNode = grid[START[0]][START[1]];
     const endNode = grid[END[0]][END[1]];
+
     const visitedNodes = algo === "BFS"
       ? bfs(grid, startNode, endNode)
       : dfs(grid, startNode, endNode);
 
     const path = getPath(endNode);
+
     animate(visitedNodes, path);
+
+    setTimeout(() => {
+      if (path.length === 0) {
+        setMessage("Path not found");
+      }
+    }, visitedNodes.length * getDelay() + 100);
   };
 
   const animate = (visitedNodes, path) => {
@@ -128,6 +139,7 @@ const Maze = () => {
   return (
     <div className="maze-container">
       <h2 className="maze">Maze Visualizer</h2>
+
       <div className="controls">
         <button onClick={() => visualize("BFS")}>Visualize BFS</button>
         <button onClick={() => visualize("DFS")}>Visualize DFS</button>
@@ -138,6 +150,12 @@ const Maze = () => {
           <option>Fast</option>
         </select>
       </div>
+
+      {message && (
+        <div className="message" style={{ color: "red", fontWeight: "bold", marginTop: "10px" }}>
+          {message}
+        </div>
+      )}
 
       <div className="grid-wrapper">
         <div className="grid">

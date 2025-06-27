@@ -19,22 +19,28 @@ function generateRandomArray(size) {
 
 function Sorting() {
   const [array, setArray] = useState([]);
-  const [arraySize, setArraySize] = useState(10);
+  const [arraySize, setArraySize] = useState(null); 
+  const [displaySize, setDisplaySize] = useState(""); 
   const [selectedAlgo, setSelectedAlgo] = useState("Bubble Sort");
   const [speed, setSpeed] = useState("Medium");
   const [error, setError] = useState("");
 
   useEffect(() => {
-    setArray(generateRandomArray(arraySize));
+    setArray(generateRandomArray(10));
   }, []);
 
   const handleGenerate = () => {
-    if (arraySize > 10) {
+    const size = Number(displaySize);
+    if (!size || size === 0) {
+      setError("Array size cannot be 0.");
+      return;
+    }
+    if (size > 10) {
       setError("Array size cannot exceed 10.");
       return;
     }
     setError("");
-    const size = Math.max(1, arraySize);
+    setArraySize(size);
     setArray(generateRandomArray(size));
   };
 
@@ -44,7 +50,12 @@ function Sorting() {
   };
 
   const handleSort = async () => {
-    if (arraySize > 10) {
+    const size = arraySize ?? array.length;
+    if (size === 0) {
+      setError("Array size cannot be 0.");
+      return;
+    }
+    if (size > 10) {
       setError("Please reduce array size to 10 or less.");
       return;
     }
@@ -61,35 +72,27 @@ function Sorting() {
       <div className="controls">
         <input
           type="number"
-          value={arraySize}
           min="1"
           max="10"
-          onChange={(e) => {
-            const val = Number(e.target.value);
-            if (val > 10) {
-              setError("Maximum allowed array size is 10.");
-            }
-            if (val==0) {
-              setError("Array size can not be 0");
-            } else {
-              setError("");
-              setArraySize(val);
-            }
-          }}
-          placeholder="Array Size (Max 10)"
+          placeholder="Enter array size (1–10)"
+          value={displaySize}
+          onChange={(e) => setDisplaySize(e.target.value)}
         />
         <button onClick={handleGenerate}>Generate Array</button>
         <button onClick={handleReset}>Reset</button>
+
         <select value={selectedAlgo} onChange={(e) => setSelectedAlgo(e.target.value)}>
           {Object.keys(algoMap).map((algo) => (
             <option key={algo}>{algo}</option>
           ))}
         </select>
+
         <select value={speed} onChange={(e) => setSpeed(e.target.value)}>
           <option value="Slow">Slow</option>
           <option value="Medium">Medium</option>
           <option value="Fast">Fast</option>
         </select>
+
         <button onClick={handleSort}>Sort</button>
       </div>
 
